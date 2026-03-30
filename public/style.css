@@ -585,6 +585,17 @@ h3 {
     box-shadow: 0 8px 24px rgba(0,0,0,0.15);
 }
 
+.project-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    cursor: pointer;
+}
+
+.project-card-link:hover {
+    border-color: var(--accent);
+}
+
 .project-icon {
     font-size: 2rem;
     margin-bottom: 1rem;
