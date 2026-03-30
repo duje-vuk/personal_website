@@ -1,0 +1,19 @@
+{
+  "name": "portfolio-backend",
+  "version": "1.0.0",
+  "description": "Portfolio website served via Express with Helmet security headers",
+  "author": "Duje Vukovac",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [],
+  "license": "MIT",
+  "dependencies": {
+    "express": "^5.2.1",
+    "helmet": "^8.1.0"
+  }
+}
