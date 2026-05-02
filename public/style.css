@@ -364,7 +364,7 @@ section {
     border: 2px solid var(--accent);
 }
 
-.contact-submit:hover {
+#contact .contact-submit:hover {
     background: var(--accent);
     color: var(--bg-section);
     opacity: 1;
