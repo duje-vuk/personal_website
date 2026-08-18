@@ -47,8 +47,8 @@
 
     <div class="nav-links" role="menubar">
         <a href="#about" role="menuitem">About</a>
-        <a href="#projects" role="menuitem">Projects</a>
         <a href="#experience" role="menuitem">Experience</a>
+        <a href="#volunteering" role="menuitem">Volunteering</a>
         <a href="#contact" role="menuitem">Contact</a>
         <a href="blog.html" role="menuitem">Blog</a>
         <a href="CV.pdf" class="nav-resume" target="_blank" aria-label="Open resume as PDF">Resume ↓</a>
@@ -104,11 +104,16 @@
                     <h3>Skills & Tech Stack</h3>
                     <div class="skills-grid">
                         <span class="skill-tag">Python</span>
+                        <span class="skill-tag">C</span>
                         <span class="skill-tag">C++</span>
                         <span class="skill-tag">JavaScript</span>
                         <span class="skill-tag">HTML & CSS</span>
+                        <span class="skill-tag">Flask</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Express</span>
+                        <span class="skill-tag">SQLite</span>
                         <span class="skill-tag">Git</span>
-                        <span class="skill-tag">Assembly</span>
+                        <span class="skill-tag">Assembly (x86, IJVM)</span>
                         <span class="skill-tag">MATLAB</span>
                         <span class="skill-tag">AI-Assisted Development</span>
                     </div>
@@ -132,14 +137,14 @@
         </svg>
     </div>
 
-    <!-- Projects Section -->
-    <section id="projects" aria-label="Projects">
+    <!-- Experience & Projects Section -->
+    <section id="experience" aria-label="Experience and projects">
         <div class="container">
-            <h2>Projects</h2>
-            <div class="projects-grid">
+            <h2>Experience &amp; Projects</h2>
+            <div class="projects-grid" id="projects">
                 <a href="https://github.com/duje-vuk/StudyTelegramBot" target="_blank" rel="noopener noreferrer" class="project-card project-card-link">
                     <div class="project-icon" aria-hidden="true">&#129302;</div>
-                    <h3>StudyBot</h3>
+                    <div class="project-head"><h3>StudyBot</h3><span class="project-year">2025</span></div>
                     <p>Custom Telegram bot connected to a Groq API that turns study materials into active recall questions. Supports PDF uploads, approve/reject filtering, scheduled question delivery, and weak-topic tracking. 130+ vetted questions generated in one week.</p>
                     <div class="project-tags">
                         <span>Python</span>
@@ -150,7 +155,7 @@
                 </a>
                 <a href="https://github.com/duje-vuk/DailyBriefing" target="_blank" rel="noopener noreferrer" class="project-card project-card-link">
                     <div class="project-icon" aria-hidden="true">&#128240;</div>
-                    <h3>Daily Briefing</h3>
+                    <div class="project-head"><h3>Daily Briefing</h3><span class="project-year">2025</span></div>
                     <p>AI-powered news dashboard. Node.js app that aggregates Reddit and NewsAPI feeds, with Groq LLM integration for AI-generated summaries. Proxied multiple APIs through an Express backend.</p>
                     <div class="project-tags">
                         <span>Node.js</span>
@@ -163,7 +168,7 @@
                 </a>
                 <a href="https://github.com/duje-vuk/StartupEvalTool" target="_blank" rel="noopener noreferrer" class="project-card project-card-link">
                     <div class="project-icon" aria-hidden="true">&#128200;</div>
-                    <h3>Startup Evaluation Tool</h3>
+                    <div class="project-head"><h3>Startup Evaluation Tool</h3><span class="project-year">2025</span></div>
                     <p>Flask web app connected to the Hacker News API and Groq LLM as a daily startup judgment trainer. Fetches Show HN posts, selects and structures the 3 most interesting startups for evaluation (viability, reasoning, risk, confidence), then reveals an AI-generated critique post-submission. Sessions persist in SQLite with full history tracking.</p>
                     <div class="project-tags">
                         <span>Python</span>
@@ -175,38 +180,8 @@
                     </div>
                 </a>
             </div>
-        </div>
-    </section>
 
-    <!-- Wave: projects → gap -->
-    <div class="wave-bottom-blue" aria-hidden="true">
-        <svg viewBox="0 0 1440 150" preserveAspectRatio="none">
-            <path d="M0,0 C120,70 280,30 440,80 C600,130 760,20 920,60 C1080,100 1240,30 1440,70 L1440,150 L0,150 Z" fill="var(--salmon)"/>
-        </svg>
-    </div>
-    <div class="salmon-gap" aria-hidden="true"></div>
-
-    <!-- Wave: gap → experience -->
-    <div class="wave-top-blue" aria-hidden="true">
-        <svg viewBox="0 0 1440 150" preserveAspectRatio="none">
-            <path d="M0,150 C160,70 320,120 480,80 C640,40 800,110 960,70 C1120,30 1280,90 1440,60 L1440,0 L0,0 Z" fill="var(--salmon)"/>
-        </svg>
-    </div>
-
-    <!-- Experience Section -->
-    <section id="experience" aria-label="Experience">
-        <div class="container">
-            <h2>Experience</h2>
             <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-marker" aria-hidden="true"></div>
-                    <div class="timeline-content">
-                        <span class="timeline-date">2025 — Present</span>
-                        <p class="timeline-org"><em>Personal Projects</em></p>
-                        <h3>Solo Developer</h3>
-                        <p>Building AI-powered tools that solve problems I run into daily. Projects range from a Telegram bot for spaced repetition to a news aggregator with LLM-generated summaries to a full-stack web app for startup evaluation practice. Stack spans Python, Node.js, Flask, Express, SQLite, and multiple APIs, with each project shipped end-to-end from idea to working product.</p>
-                    </div>
-                </div>
                 <div class="timeline-item">
                     <div class="timeline-marker" aria-hidden="true"></div>
                     <div class="timeline-content">
@@ -238,6 +213,48 @@
         </svg>
     </div>
 
+    <!-- Volunteering Section -->
+    <section id="volunteering" aria-label="Volunteering">
+        <div class="container">
+            <h2>Volunteering</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker" aria-hidden="true"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">Aug 2026 &mdash; Present</span>
+                        <p class="timeline-org"><em>Safe AI Netherlands (SAIN) &middot; Amsterdam, NL</em></p>
+                        <h3>Discussion Co-lead</h3>
+                        <p>Run the weekly discussion sessions end to end: scheduling them, selecting the paper topic each week, and preparing the material the group works through. On the day I guide the discussion itself, keeping it on track and drawing out contributions from everyone in the room.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker" aria-hidden="true"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">Apr 2026 &mdash; Present</span>
+                        <p class="timeline-org"><em>AI Spring Amsterdam &middot; Amsterdam, NL</em></p>
+                        <h3>Co-Organizer</h3>
+                        <p>Co-organize the weekly AI paper reading events at VU Amsterdam, covering logistics, topic suggestion, and hosting. Co-organized the July 2026 end-of-year AI papers showcase together with Safe AI Netherlands (SAIN) and AISO, where I presented an overview of Chain-of-Thought improvements toward more efficient LLM reasoning.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wave: volunteering -> gap -->
+    <div class="wave-bottom-blue" aria-hidden="true">
+        <svg viewBox="0 0 1440 150" preserveAspectRatio="none">
+            <path d="M0,0 C140,60 300,110 460,60 C620,10 780,90 940,50 C1100,10 1280,80 1440,40 L1440,150 L0,150 Z" fill="var(--salmon)"/>
+        </svg>
+    </div>
+    <div class="salmon-gap" aria-hidden="true"></div>
+
+    <!-- Wave: gap -> contact -->
+    <div class="wave-top-blue" aria-hidden="true">
+        <svg viewBox="0 0 1440 150" preserveAspectRatio="none">
+            <path d="M0,150 C160,90 340,40 500,90 C660,140 820,50 980,80 C1140,110 1300,50 1440,80 L1440,0 L0,0 Z" fill="var(--salmon)"/>
+        </svg>
+    </div>
+
     <!-- Contact Section -->
     <section id="contact" aria-label="Contact">
         <div class="container">
@@ -266,8 +283,8 @@
         <div class="footer-links">
             <a href="#hero">Home</a>
             <a href="#about">About</a>
-            <a href="#experience">Experience</a>
-            <a href="#projects">Projects</a>
+            <a href="#experience">Experience &amp; Projects</a>
+            <a href="#volunteering">Volunteering</a>
             <a href="#contact">Contact</a>
             <a href="blog.html">Blog</a>
         </div>
