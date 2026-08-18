@@ -9,7 +9,7 @@ Personal portfolio website for Duje Vukovac. Static site served via Express with
 ## Project Structure
 
 - **`public/`** — All frontend files (served by Express static)
-  - **`index.html`** — Main portfolio page (hero, about, projects, experience timeline, contact section)
+  - **`index.html`** — Main portfolio page (hero, about, merged experience & projects section, volunteering timeline, contact section)
   - **`style.css`** — All styles; uses CSS custom properties for theming (`--salmon`, `--blue`, etc.)
   - **`script.js`** — Theme toggle, mobile hamburger menu, smooth scroll
   - **`404.html`** — Custom 404 page

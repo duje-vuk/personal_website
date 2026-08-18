@@ -113,9 +113,10 @@
 
 \begin{center}
     \textbf{\Huge \scshape Duje Vukovac} \\ \vspace{1pt}
-    \small \href{mailto:x@x.com}{dvcsmail@gmail.com} $|$
+    \small \href{mailto:dvcsmail@gmail.com}{dvcsmail@gmail.com} $|$
     \href{https://www.linkedin.com/in/dujevukovac/}{LinkedIn} $|$
-    \href{https://github.com/duje-vuk}{GitHub}
+    \href{https://github.com/duje-vuk}{GitHub} $|$
+    \href{https://dujevukovac.com}{dujevukovac.com}
 \end{center}
 
 
@@ -125,22 +126,36 @@
     \resumeSubheading
       {Vrije Universiteit Amsterdam}{Amsterdam, NL}
       {Bachelor of Science, Computer Science}{Sep 2025 -- Sep 2028}
-      \small{\textbf{Coursework}{: Data Structures and Algorithms, Smart Systems Engineering, Web Technology, Computer Programming}}
   \resumeSubHeadingListEnd
 
 
-%-----------EXPERIENCE-----------
-\section{Experience}
+%-----------EXPERIENCE & PROJECTS-----------
+\section{Experience \& Projects}
   \resumeSubHeadingListStart
 
-    \resumeSubheading
-      {Solo Developer}{\textit{2025 -- Present}}
-      {Personal Projects}{}
-      \resumeItemListStart
-        \resumeItem{Building AI-powered tools ranging from a Telegram bot for spaced repetition to a news aggregator with LLM-generated summaries.}
-        \resumeItem{Developed a full-stack web app for startup evaluation practice using Flask, SQLite, and Groq API.}
-        \resumeItem{Shipped each project end-to-end from idea to working product across Python, Node.js, Flask, Express, and SQLite.}
-      \resumeItemListEnd
+      \resumeProjectHeading
+          {\textbf{StudyBot} $|$ \emph{Python, Telegram API, Groq API}}{2025}
+          \resumeItemListStart
+            \resumeItem{Built a custom Telegram bot connected to Groq API that turns study materials into active recall questions.}
+            \resumeItem{Supports PDF uploads, approve/reject filtering, scheduled question delivery, and weak-topic tracking.}
+            \resumeItem{Generated over 130 vetted questions in one week.}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+          {\textbf{Daily Briefing} $|$ \emph{Node.js, Express, Groq API, NewsAPI, Reddit API}}{2025}
+          \resumeItemListStart
+            \resumeItem{Developed an AI-powered news dashboard aggregating Reddit and NewsAPI feeds.}
+            \resumeItem{Integrated Groq LLM for AI-generated summaries.}
+            \resumeItem{Proxied multiple APIs through an Express backend.}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+          {\textbf{Startup Evaluation Tool} $|$ \emph{Python, Flask, SQLite, Groq API, Hacker News API}}{2025}
+          \resumeItemListStart
+            \resumeItem{Built a Flask web app as a daily startup judgment trainer using Hacker News and Groq LLM.}
+            \resumeItem{Fetches Show HN posts, structures startups for evaluation, then reveals AI-generated critique post-submission.}
+            \resumeItem{Sessions persist in SQLite with full history tracking.}
+          \resumeItemListEnd
 
     \resumeSubheading
       {Head of Mod Development}{\textit{Sep 2021 -- Sep 2023}}
@@ -162,32 +177,39 @@
   \resumeSubHeadingListEnd
 
 
-%-----------PROJECTS-----------
-\section{Projects}
-    \resumeSubHeadingListStart
-      \resumeProjectHeading
-          {\textbf{StudyBot} $|$ \emph{Python, Telegram API, Groq API}}{}
-          \resumeItemListStart
-            \resumeItem{Built a custom Telegram bot connected to Groq API that turns study materials into active recall questions.}
-            \resumeItem{Supports PDF uploads, approve/reject filtering, scheduled question delivery, and weak-topic tracking.}
-            \resumeItem{Generated over 130 vetted questions in one week.}
-          \resumeItemListEnd
-      \resumeProjectHeading
-          {\textbf{Daily Briefing} $|$ \emph{Node.js, Express, Groq API, NewsAPI, Reddit API}}{}
-          \resumeItemListStart
-            \resumeItem{Developed an AI-powered news dashboard aggregating Reddit and NewsAPI feeds.}
-            \resumeItem{Integrated Groq LLM for AI-generated summaries.}
-            \resumeItem{Proxied multiple APIs through an Express backend.}
-          \resumeItemListEnd
-      \resumeProjectHeading
-          {\textbf{Startup Evaluation Tool} $|$ \emph{Python, Flask, SQLite, Groq API, Hacker News API}}{}
-          \resumeItemListStart
-            \resumeItem{Built a Flask web app as a daily startup judgment trainer using Hacker News and Groq LLM.}
-            \resumeItem{Fetches Show HN posts, structures startups for evaluation, then reveals AI-generated critique post-submission.}
-            \resumeItem{Sessions persist in SQLite with full history tracking.}
-          \resumeItemListEnd
-    \resumeSubHeadingListEnd
+%-----------VOLUNTEERING-----------
+\section{Volunteering}
+  \resumeSubHeadingListStart
 
+    \resumeSubheading
+      {Discussion Co-lead}{\textit{Aug 2026 -- Present}}
+      {Safe AI Netherlands (SAIN)}{Amsterdam, NL}
+      \resumeItemListStart
+        \resumeItem{Organize the weekly discussion sessions, from scheduling through to running them on the day.}
+        \resumeItem{Select the paper topics each week and prepare the material the group works through.}
+        \resumeItem{Guide the discussion on the day, keeping it on track and drawing out contributions from attendees.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Co-Organizer}{\textit{Apr 2026 -- Present}}
+      {AI Spring Amsterdam}{Amsterdam, NL}
+      \resumeItemListStart
+        \resumeItem{Co-organize weekly AI paper reading events at VU Amsterdam: logistics, topic suggestion, and hosting.}
+        \resumeItem{Co-organized the July 2026 end-of-year AI papers showcase with Safe AI Netherlands (SAIN) and AISO.}
+        \resumeItem{Presented an overview of Chain-of-Thought improvements toward more efficient LLM reasoning at that showcase.}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+
+%-----------CERTIFICATIONS-----------
+\section{Certifications}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Anthropic Academy}{: Introduction to Subagents; Introduction to Model Context Protocol; Claude Code in Action; AI Fluency: Framework \& Foundations} \\
+     \textbf{Databricks}{: Academy Accreditation, Generative AI Fundamentals}
+    }}
+ \end{itemize}
 
 
 %
@@ -195,10 +217,10 @@
 \section{Technical Skills}
  \begin{itemize}[leftmargin=0.15in, label={}]
     \small{\item{
-     \textbf{Languages}{: Python, C++, JavaScript, HTML/CSS, Assembly, MATLAB} \\
-     \textbf{Frameworks}{: Flask, Node.js, Express} \\
+     \textbf{Programming Languages}{: Python, C, C++, JavaScript, HTML/CSS, Assembly (x86, IJVM), MATLAB} \\
+     \textbf{Frameworks \& APIs}{: Flask, Node.js, Express, Telegram API, Groq API, NewsAPI, Reddit API, Hacker News API} \\
      \textbf{Developer Tools}{: Git, SQLite, Claude Code} \\
-     \textbf{APIs}{: Telegram API, Groq API, NewsAPI, Reddit API, Hacker News API}
+     \textbf{Spoken Languages}{: Croatian (native), English (C1), Dutch (A2), German (A2)}
     }}
  \end{itemize}
 
