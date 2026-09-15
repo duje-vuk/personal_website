@@ -96,7 +96,6 @@
             '<h1>' + post.title + '</h1>' +
             '<div class="post-actions">' +
                 '<button class="share-btn" id="share-btn">Share</button>' +
-                '<span class="post-upvotes">' + post.upvotes + '</span>' +
             '</div>';
 
         // Body

@@ -78,7 +78,6 @@
                 '<h2>' + post.title + '</h2>' +
                 '<p class="excerpt">' + post.excerpt + '</p>' +
                 '<div class="post-footer">' +
-                    '<span class="upvote-count">' + post.upvotes + '</span>' +
                     '<span>' + post.readingTime + ' min read</span>' +
                 '</div>';
 
