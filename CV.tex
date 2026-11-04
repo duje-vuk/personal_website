@@ -1,14 +1,6 @@
-%-------------------------
-% Resume in Latex
-% Author : Jake Gutierrez
-% Based off of: https://github.com/sb2nov/resume
-% License : MIT
-%------------------------
-
-\documentclass[letterpaper,11pt]{article}
-
+\documentclass[a4paper,11pt]{article}
 \usepackage{latexsym}
-\usepackage[empty]{fullpage}
+\usepackage[a4paper,left=0.5in,right=0.5in,top=0.45in,bottom=0.45in,headheight=0pt,headsep=0pt]{geometry}
 \usepackage{titlesec}
 \usepackage{marvosym}
 \usepackage[usenames,dvipsnames]{color}
@@ -19,211 +11,107 @@
 \usepackage[english]{babel}
 \usepackage{tabularx}
 \input{glyphtounicode}
-
-
-%----------FONT OPTIONS----------
-% sans-serif
-% \usepackage[sfdefault]{FiraSans}
-% \usepackage[sfdefault]{roboto}
-% \usepackage[sfdefault]{noto-sans}
-% \usepackage[default]{sourcesanspro}
-
-% serif
-% \usepackage{CormorantGaramond}
-% \usepackage{charter}
-
-
-\pagestyle{fancy}
-\fancyhf{} % clear all header and footer fields
-\fancyfoot{}
-\renewcommand{\headrulewidth}{0pt}
-\renewcommand{\footrulewidth}{0pt}
-
-% Adjust margins
-\addtolength{\oddsidemargin}{-0.5in}
-\addtolength{\evensidemargin}{-0.5in}
-\addtolength{\textwidth}{1in}
-\addtolength{\topmargin}{-.5in}
-\addtolength{\textheight}{1.0in}
-
-\urlstyle{same}
-
-\raggedbottom
-\raggedright
-\setlength{\tabcolsep}{0in}
-
-% Sections formatting
-\titleformat{\section}{
-  \vspace{-4pt}\scshape\raggedright\large
-}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
-
-% Ensure that generate pdf is machine readable/ATS parsable
+\pagestyle{fancy}\fancyhf{}\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}\renewcommand{\footrulewidth}{0pt}
+\urlstyle{same}\raggedbottom\raggedright\setlength{\tabcolsep}{0in}
+\titleformat{\section}{\vspace{-4pt}\scshape\raggedright\large}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
 \pdfgentounicode=1
-
-%-------------------------
-% Custom commands
-\newcommand{\resumeItem}[1]{
-  \item\small{
-    {#1 \vspace{-2pt}}
-  }
-}
-
-\newcommand{\resumeSubheading}[4]{
-  \vspace{-2pt}\item
-    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-      \textbf{#1} & #2 \\
-      \textit{\small#3} & \textit{\small #4} \\
-    \end{tabular*}\vspace{-7pt}
-}
-
-\newcommand{\resumeSubSubheading}[2]{
-    \item
-    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-      \textit{\small#1} & \textit{\small #2} \\
-    \end{tabular*}\vspace{-7pt}
-}
-
-\newcommand{\resumeProjectHeading}[2]{
-    \item
-    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-      \small#1 & #2 \\
-    \end{tabular*}\vspace{-7pt}
-}
-
-\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
-
+\newcommand{\resumeItem}[1]{\item\small{{#1 \vspace{-2pt}}}}
+\newcommand{\resumeSubheading}[4]{\vspace{-2pt}\item
+  \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \textbf{#1} & #2 \\ \textit{\small#3} & \textit{\small #4} \\
+  \end{tabular*}\vspace{-7pt}}
+\newcommand{\resumeProjectHeading}[2]{\item
+  \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+    \small#1 & #2 \\
+  \end{tabular*}\vspace{-7pt}}
 \renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
-
 \newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
 \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
-\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[noitemsep,topsep=1pt]}
 \newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
-
-%-------------------------------------------
-%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
 \begin{document}
-
-%----------HEADING----------
-% \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
-%   \textbf{\href{http://sourabhbajaj.com/}{\Large Sourabh Bajaj}} & Email : \href{mailto:sourabh@sourabhbajaj.com}{sourabh@sourabhbajaj.com}\\
-%   \href{http://sourabhbajaj.com/}{http://www.sourabhbajaj.com} & Mobile : +1-123-456-7890 \\
-% \end{tabular*}
-
 \begin{center}
-    \textbf{\Huge \scshape Duje Vukovac} \\ \vspace{1pt}
-    \small \href{mailto:dvcsmail@gmail.com}{dvcsmail@gmail.com} $|$
-    \href{https://www.linkedin.com/in/dujevukovac/}{LinkedIn} $|$
-    \href{https://github.com/duje-vuk}{GitHub} $|$
-    \href{https://dujevukovac.com}{dujevukovac.com}
+  \textbf{\Huge \scshape Duje Vukovac} \\ \vspace{1pt}
+  \small \href{mailto:dvcsmail@gmail.com}{\underline{dvcsmail@gmail.com}} $|$
+  \href{https://www.linkedin.com/in/dujevukovac}{\underline{LinkedIn}} $|$
+  \href{https://github.com/duje-vuk}{\underline{GitHub}} $|$
+  \href{https://dujevukovac.com}{\underline{dujevukovac.com}}
 \end{center}
 
+\section{About}
+\begin{itemize}[leftmargin=0.15in, label={}, topsep=2pt]
+  \small{\item{I'm a VU Computer Science student who's into AI-powered software. Currently learning core SWE skills while also building self-study tools and exploring ML/HCI/AI tooling on the side. Increasingly drawn to product-oriented roles, building with an obsessive focus on users.}}
+\end{itemize}\vspace{-4pt}
 
-%-----------EDUCATION-----------
 \section{Education}
-  \resumeSubHeadingListStart
-    \resumeSubheading
-      {Vrije Universiteit Amsterdam}{Amsterdam, NL}
-      {Bachelor of Science, Computer Science}{Sep 2025 -- Sep 2028}
-  \resumeSubHeadingListEnd
+\resumeSubHeadingListStart
+  \resumeSubheading{Vrije Universiteit Amsterdam}{Amsterdam, NL}{Bachelor of Science, Computer Science}{Sep 2025 -- Sep 2028}
+\resumeSubHeadingListEnd
 
-
-%-----------EXPERIENCE & PROJECTS-----------
-\section{Experience \& Projects}
-  \resumeSubHeadingListStart
-
-      \resumeProjectHeading
-          {\textbf{StudyBot} $|$ \emph{Python, Telegram API, Groq API}}{2025}
-          \resumeItemListStart
-            \resumeItem{Built a custom Telegram bot connected to Groq API that turns study materials into active recall questions.}
-            \resumeItem{Supports PDF uploads, approve/reject filtering, scheduled question delivery, and weak-topic tracking.}
-            \resumeItem{Generated over 130 vetted questions in one week.}
-          \resumeItemListEnd
-
-      \resumeProjectHeading
-          {\textbf{Daily Briefing} $|$ \emph{Node.js, Express, Groq API, NewsAPI, Reddit API}}{2025}
-          \resumeItemListStart
-            \resumeItem{Developed an AI-powered news dashboard aggregating Reddit and NewsAPI feeds.}
-            \resumeItem{Integrated Groq LLM for AI-generated summaries.}
-            \resumeItem{Proxied multiple APIs through an Express backend.}
-          \resumeItemListEnd
-
-      \resumeProjectHeading
-          {\textbf{Startup Evaluation Tool} $|$ \emph{Python, Flask, SQLite, Groq API, Hacker News API}}{2025}
-          \resumeItemListStart
-            \resumeItem{Built a Flask web app as a daily startup judgment trainer using Hacker News and Groq LLM.}
-            \resumeItem{Fetches Show HN posts, structures startups for evaluation, then reveals AI-generated critique post-submission.}
-            \resumeItem{Sessions persist in SQLite with full history tracking.}
-          \resumeItemListEnd
-
-    \resumeSubheading
-      {Head of Mod Development}{\textit{Sep 2021 -- Sep 2023}}
-      {Hearts of Iron IV Community}{}
-      \resumeItemListStart
-        \resumeItem{Built, maintained and optimized a multisystem mod using Paradox's scripting framework, reaching hundreds of downloads.}
-        \resumeItem{Achieved approximately 30\% improvement in in-game performance through mod optimization.}
-    \resumeItemListEnd
-
-    \resumeSubheading
-      {Community Manager}{\textit{Sep 2021 -- Sep 2023}}
-      {Hearts of Iron IV Community}{}
-      \resumeItemListStart
-        \resumeItem{Grew community from 30 to over 500 members, leading a team of 8 moderators.}
-        \resumeItem{Organized over 50 events with over 80\% capacity fill rate and brokered partnerships yielding 2 competitive tournaments.}
-        \resumeItem{Designed community advertising systems and tracked member analytics via spreadsheets.}
-      \resumeItemListEnd
-
-  \resumeSubHeadingListEnd
-
-
-%-----------VOLUNTEERING-----------
-\section{Volunteering}
-  \resumeSubHeadingListStart
-
-    \resumeSubheading
-      {Discussion Co-lead}{\textit{Aug 2026 -- Present}}
-      {Safe AI Netherlands (SAIN)}{Amsterdam, NL}
-      \resumeItemListStart
-        \resumeItem{Organize the weekly discussion sessions, from scheduling through to running them on the day.}
-        \resumeItem{Select the paper topics each week and prepare the material the group works through.}
-        \resumeItem{Guide the discussion on the day, keeping it on track and drawing out contributions from attendees.}
-      \resumeItemListEnd
-
-    \resumeSubheading
-      {Co-Organizer}{\textit{Apr 2026 -- Present}}
-      {AI Spring Amsterdam}{Amsterdam, NL}
-      \resumeItemListStart
-        \resumeItem{Co-organize weekly AI paper reading events at VU Amsterdam: logistics, topic suggestion, and hosting.}
-        \resumeItem{Co-organized the July 2026 end-of-year AI papers showcase with Safe AI Netherlands (SAIN) and AISO.}
-        \resumeItem{Presented an overview of Chain-of-Thought improvements toward more efficient LLM reasoning at that showcase.}
-      \resumeItemListEnd
-
-  \resumeSubHeadingListEnd
-
-
-%-----------CERTIFICATIONS-----------
-\section{Certifications}
- \begin{itemize}[leftmargin=0.15in, label={}]
-    \small{\item{
-     \textbf{Anthropic Academy}{: Introduction to Subagents; Introduction to Model Context Protocol; Claude Code in Action; AI Fluency: Framework \& Foundations} \\
-     \textbf{Databricks}{: Academy Accreditation, Generative AI Fundamentals}
-    }}
- \end{itemize}
-
-
-%
-%-----------PROGRAMMING SKILLS-----------
 \section{Technical Skills}
- \begin{itemize}[leftmargin=0.15in, label={}]
-    \small{\item{
-     \textbf{Programming Languages}{: Python, C, C++, JavaScript, HTML/CSS, Assembly (x86, IJVM), MATLAB} \\
-     \textbf{Frameworks \& APIs}{: Flask, Node.js, Express, Telegram API, Groq API, NewsAPI, Reddit API, Hacker News API} \\
-     \textbf{Developer Tools}{: Git, SQLite, Claude Code} \\
-     \textbf{Spoken Languages}{: Croatian (native), English (C1), Dutch (A2), German (A2)}
-    }}
- \end{itemize}
+\begin{itemize}[leftmargin=0.15in, label={}, topsep=2pt]
+  \small{\item{
+    \textbf{Programming Languages}{: Python, C, C++, JavaScript, HTML/CSS, Assembly (x86, IJVM), MATLAB} \\
+    \textbf{Frameworks \& APIs}{: Flask, Node.js, Express, Telegram API, Groq API, NewsAPI, Reddit API, Hacker News API} \\
+    \textbf{Developer Tools}{: Git, SQLite, Claude Code} \\
+    \textbf{Spoken Languages}{: Croatian (native), English (C1), Dutch (A2), German (A2)}
+  }}
+\end{itemize}
+\section{Experience \& Projects}
+\resumeSubHeadingListStart
+  \resumeProjectHeading{\textbf{AI-Powered Tools} $|$ \emph{Python, Node.js, Flask, Express, SQLite, Groq API}}{2025}
+  \resumeItemListStart
+    \resumeItem{Integrated Groq LLMs for quiz generation (StudyBot), news summaries (Daily Briefing) and startup critique.}
+    \resumeItem{Aggregated external APIs (Telegram, Reddit, NewsAPI, Hacker News) through Python and Express backends.}
+    \resumeItem{Added persistence and scheduling; StudyBot generated 130+ vetted questions in one week.}
+  \resumeItemListEnd
+  \resumeSubheading{Head of Mod Development}{Sep 2021 -- Sep 2023}{Hearts of Iron IV Community}{}
+  \resumeItemListStart
+    \resumeItem{Built, maintained and optimized a multisystem mod using Paradox's scripting framework, reaching hundreds of downloads.}
+    \resumeItem{Achieved approximately 30\% improvement in in-game performance through mod optimization.}
+  \resumeItemListEnd
+  \resumeSubheading{Community Manager}{Sep 2021 -- Sep 2023}{Hearts of Iron IV Community}{}
+  \resumeItemListStart
+    \resumeItem{Grew community from 30 to over 500 members, leading a team of 8 moderators.}
+    \resumeItem{Organized over 50 events with over 80\% capacity fill rate and brokered partnerships yielding 2 competitive tournaments.}
+    \resumeItem{Designed community advertising systems and tracked member analytics via spreadsheets.}
+  \resumeItemListEnd
+\resumeSubHeadingListEnd
 
+\section{Volunteering}
+\resumeSubHeadingListStart
+  \resumeSubheading{Discussion Lead}{Aug 2026 -- Present}{Safe AI Netherlands (SAIN)}{Amsterdam, NL}
+  \resumeItemListStart
+    \resumeItem{Organize the weekly discussion sessions, from scheduling through to running them on the day.}
+    \resumeItem{Select the paper topics each week and prepare the material the group works through.}
+    \resumeItem{Guide the discussion on the day, keeping it on track and drawing out contributions from attendees.}
+  \resumeItemListEnd
+  \resumeSubheading{Co-Organizer}{Apr 2026 -- Present}{AI Spring Amsterdam}{Amsterdam, NL}
+  \resumeItemListStart
+    \resumeItem{Co-organize weekly AI paper reading events at VU Amsterdam: logistics, topic suggestion, and hosting.}
+    \resumeItem{Co-organized the July 2026 end-of-year AI papers showcase with Safe AI Netherlands (SAIN) and AISO.}
+    \resumeItem{Presented an overview of Chain-of-Thought improvements toward more efficient LLM reasoning at that showcase.}
+  \resumeItemListEnd
+\resumeSubHeadingListEnd
 
-%-------------------------------------------
+\section{Certifications}
+\begin{itemize}[leftmargin=0.15in, label={}, topsep=2pt]
+  \small{\item{
+    \textbf{Anthropic Academy}{: Introduction to Subagents; Introduction to Model Context Protocol; Claude Code in Action; AI Fluency: Framework \& Foundations} \\
+    \textbf{Databricks}{: Academy Accreditation, Generative AI Fundamentals}
+  }}
+\end{itemize}\vspace{-4pt}
+
+\section{Hackathons}
+\resumeSubHeadingListStart
+  \resumeProjectHeading{\textbf{AI for Water Hackathon -- Finalist} $|$ \emph{AISO \& University of Amsterdam}}{Oct 2026}
+  \resumeItemListStart
+    \resumeItem{Reached the finals of a one-day hackathon building AI solutions for urban water challenges.}
+  \resumeItemListEnd
+  \resumeProjectHeading{\textbf{TAG Creative Hackathon}}{Apr 2026}
+  \resumeItemListStart
+    \resumeItem{Participated in the first creative hackathon in the Netherlands.}
+  \resumeItemListEnd
+\resumeSubHeadingListEnd
 \end{document}
