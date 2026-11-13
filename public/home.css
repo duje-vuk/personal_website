@@ -406,7 +406,69 @@ html.no-fit body { overflow: auto; height: auto; }
 html.no-fit .card { height: auto; }
 html.no-fit .columns { overflow: visible; }
 
+/* ── Page-load entrance: staggered focus-in ──
+   fill-mode "backwards" only applies the start frame during the delay,
+   so hover transforms work normally once each animation ends.
+   No translate on body content: scale-down + blur never creates overflow,
+   which keeps the desktop one-screen fit script accurate. */
+@keyframes card-in   { from { opacity: 0; } }
+@keyframes seal-in   { from { opacity: 0; transform: scale(0.4) rotate(-25deg); } }
+@keyframes focus-in  { from { opacity: 0; filter: blur(8px); transform: scale(0.97); } }
+@keyframes pop-in    { from { opacity: 0; transform: scale(0.6); } }
+@keyframes line-in   { from { transform: scaleX(0); } }
+
+.card { animation: card-in 0.5s ease-out backwards; }
+
+.profile .seal-button { animation: seal-in 0.9s 0.15s cubic-bezier(0.34, 1.56, 0.64, 1) backwards; }
+.profile h1 { animation: focus-in 0.8s 0.35s cubic-bezier(0.22, 1, 0.36, 1) backwards; }
+.toolbar { animation: card-in 0.6s 0.5s ease-out backwards; }
+
+.profile { position: relative; border-bottom-color: transparent; }
+.profile::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: -1px;
+    border-bottom: 1px solid var(--line);
+    transform-origin: center;
+    animation: line-in 0.9s 0.45s cubic-bezier(0.65, 0, 0.35, 1) backwards;
+}
+
+@media (min-width: 1000px) and (min-height: 600px) {
+    .profile::after { bottom: -3px; border-bottom: 3px double var(--line); }
+}
+
+.columns > section {
+    --d: 0.55s;
+    transform-origin: top left;
+    animation: focus-in 0.8s var(--d) cubic-bezier(0.22, 1, 0.36, 1) backwards;
+}
+.columns > section:nth-of-type(2) { --d: 0.68s; }
+.columns > section:nth-of-type(3) { --d: 0.81s; }
+.columns > section:nth-of-type(4) { --d: 0.94s; }
+.columns > section:nth-of-type(5) { --d: 1.07s; }
+.columns > section:nth-of-type(6) { --d: 1.2s; }
+
+/* Skill pills and project tiles cascade within their section */
+.tags span, .project, .contact-row a, .cv-button {
+    animation: pop-in 0.45s calc(var(--d, 0s) + 0.25s + var(--i, 0) * 0.04s) cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+}
+.project { animation-name: focus-in; animation-duration: 0.7s; }
+.tags span:nth-child(2), .project:nth-child(2), .contact-row a:nth-child(2) { --i: 1; }
+.tags span:nth-child(3), .project:nth-child(3), .contact-row a:nth-child(3) { --i: 2; }
+.tags span:nth-child(4) { --i: 3; }
+.tags span:nth-child(5) { --i: 4; }
+.tags span:nth-child(6) { --i: 5; }
+.tags span:nth-child(7) { --i: 6; }
+.skill-group:nth-child(3) { --g: 1; }
+.skill-group:nth-child(4) { --g: 2; }
+.skill-group:nth-child(5) { --g: 3; }
+.skill-group .tags span {
+    animation-delay: calc(var(--d) + 0.2s + var(--g, 0) * 0.15s + var(--i, 0) * 0.04s);
+}
+.project { animation-delay: calc(var(--d) + 0.15s + var(--i, 0) * 0.12s); }
+
 @media (prefers-reduced-motion: reduce) {
+    .card, .card *, .card *::after { animation: none !important; }
     html { scroll-behavior: auto; }
     .seal-button, .seal-button:hover, .seal-button:active { transform: none; }
 }
