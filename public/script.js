@@ -30,3 +30,40 @@
         }, 1800);
     });
 })();
+
+// ── Desktop: shrink type until the page fits one screen ──
+(function () {
+    var mq = window.matchMedia('(min-width: 1000px) and (min-height: 600px)');
+    var root = document.documentElement;
+    var cols = document.querySelector('.columns');
+    if (!cols) return;
+    var MIN = 12;
+
+    function overflowing() {
+        return cols.scrollHeight > cols.clientHeight + 1 ||
+               cols.scrollWidth > cols.clientWidth + 1;
+    }
+
+    function fit() {
+        root.style.fontSize = '';
+        root.classList.remove('no-fit');
+        if (!mq.matches) return;
+        var size = parseFloat(getComputedStyle(root).fontSize);
+        while (overflowing() && size > MIN) {
+            size -= 0.5;
+            root.style.fontSize = size + 'px';
+        }
+        if (overflowing()) {
+            root.style.fontSize = '';
+            root.classList.add('no-fit');
+        }
+    }
+
+    var t;
+    window.addEventListener('resize', function () {
+        clearTimeout(t);
+        t = setTimeout(fit, 100);
+    });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+    fit();
+})();
