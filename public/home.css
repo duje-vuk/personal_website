@@ -78,6 +78,7 @@ a { color: var(--accent); }
     gap: 1rem;
     font-size: 0.9rem;
     font-weight: 700;
+    z-index: 2; /* stay above the masthead so Blog/theme stay clickable */
 }
 .toolbar a { text-decoration: none; }
 .toolbar a:hover { text-decoration: underline; }
@@ -156,7 +157,8 @@ section {
     padding: 2rem 0;
     border-bottom: 1px solid var(--line);
 }
-section:last-of-type { border-bottom: 0; }
+section:last-child { border-bottom: 0; }
+.col:not(:last-child) section:last-child { border-bottom: 1px solid var(--line); } /* mobile: divider between stacked columns */
 
 h2 {
     font-size: 1.35rem;
@@ -349,26 +351,43 @@ footer {
     .profile .affiliation { margin-top: 0.1rem; font-size: 0.9rem; }
     .hero-seal { width: 6.5rem; height: 6.5rem; }
 
-    /* Body flows like a newspaper: two balanced columns */
+    /* Two fixed columns: left About→Certifications, right Skills→Contact */
     .columns {
         flex: 1;
         min-height: 0;
         margin-top: 1.25rem;
-        column-count: 2;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
         column-gap: 3.5rem;
-        column-rule: 1px solid var(--line);
-        column-fill: balance;
+        align-items: stretch;
         overflow: hidden;
     }
-
-    .entry, .tags, .project, .contact, .prose { break-inside: avoid; }
-    h2, .section-note { break-after: avoid; }
+    .col + .col {
+        position: relative;
+    }
+    .col + .col::before {
+        content: "";
+        position: absolute;
+        top: 0; bottom: 0;
+        left: -1.75rem;
+        border-left: 1px solid var(--line);
+    }
 
     section {
         padding: 0 0 1rem;
         margin-bottom: 1rem;
     }
-    section:last-of-type { margin-bottom: 0; padding-bottom: 0; }
+    section:last-child { margin-bottom: 0; padding-bottom: 0; }
+    .col > section:last-child,
+    .col:not(:last-child) section:last-child { border-bottom: 0; }
+    /* Education | Certifications side by side at the bottom left */
+    .edu-certs {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        column-gap: 2rem;
+    }
+    .edu-certs section { margin-bottom: 0; padding-bottom: 0; border-bottom: 0; }
+    .edu-certs .entry + .entry { margin-top: 0.5rem; }
 
     h2 { font-size: 1.15rem; margin-bottom: 0.55rem; }
     .prose, .entry p { font-size: 0.95rem; line-height: 1.5; }
@@ -413,7 +432,7 @@ html.no-fit .columns { overflow: visible; }
    fill-mode "backwards" only holds the start frame during the delay, so
    hover transforms work normally afterwards. No translate on body content:
    scale + blur never overflows, keeping the desktop fit script accurate. */
-:root { --t: 0.244; }
+:root { --t: 0.235; }
 
 @keyframes card-in  { from { opacity: 0; } }
 @keyframes seal-in  { from { opacity: 0; transform: scale(0.5) rotate(-20deg); } }
@@ -442,16 +461,17 @@ html.no-fit .columns { overflow: visible; }
 }
 
 /* 2+. Sections, in reading order. --d = when the section starts. */
-.columns > section {
+.columns section {
     transform-origin: top left;
     animation: focus-in calc(1.1s * var(--t)) calc(var(--d) * var(--t)) cubic-bezier(0.22, 1, 0.36, 1) backwards;
 }
 #about      { --d: 1.3s; }
 #experience { --d: 2.4s; }
-#education  { --d: 4.6s; }
-#skills     { --d: 5.5s; }
-#projects   { --d: 7.2s; }
-#contact    { --d: 8.6s; }
+#education      { --d: 4.6s; }
+#certifications { --d: 5.2s; }
+#skills         { --d: 5.9s; }
+#projects       { --d: 7.6s; }
+#contact        { --d: 9.0s; }
 
 /* Children reveal one after another within their section */
 .cv-button,
