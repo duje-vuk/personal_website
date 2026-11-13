@@ -413,7 +413,7 @@ html.no-fit .columns { overflow: visible; }
    fill-mode "backwards" only holds the start frame during the delay, so
    hover transforms work normally afterwards. No translate on body content:
    scale + blur never overflows, keeping the desktop fit script accurate. */
-:root { --t: 0.145; }
+:root { --t: 0.244; }
 
 @keyframes card-in  { from { opacity: 0; } }
 @keyframes seal-in  { from { opacity: 0; transform: scale(0.5) rotate(-20deg); } }
