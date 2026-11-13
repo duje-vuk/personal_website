@@ -202,6 +202,35 @@ h2 {
 
 .prose { max-width: 62ch; }
 
+/* About + square CV button */
+.about-row {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+.about-row .prose { flex: 1; }
+.cv-button {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+    width: 5.5rem;
+    height: 5.5rem;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: var(--tile-bg);
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: border-color 0.2s, background 0.2s;
+}
+.cv-button svg { width: 1.6rem; height: 1.6rem; }
+.cv-button:hover { border-color: var(--accent); background: var(--tag-bg); }
+.cv-button:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
 /* Entries (experience, education) */
 .entry + .entry { margin-top: 1.4rem; }
 .entry h3 {
@@ -351,8 +380,7 @@ footer {
         border-bottom: 3px double var(--line);
         flex-shrink: 0;
     }
-    .profile .seal-button { grid-row: span 3; }
-    .profile h1 { margin-top: 0; font-size: 2.8rem; align-self: end; }
+    .profile h1 { margin-top: 0; font-size: 2.8rem; }
     .profile .affiliation { align-self: start; }
     .profile .subtitle { margin-top: 0.15rem; font-size: 1.05rem; }
     .profile .affiliation { margin-top: 0.1rem; font-size: 0.9rem; }
