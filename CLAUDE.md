@@ -12,11 +12,11 @@ Personal portfolio website for Duje Vukovac. Static site served via Express with
   - **`index.html`** — Main page: single-column CV card (seal header, about, experience, education, skills, 3 project tiles, contact)
   - **`home.css`** — Styles for `index.html` only; theme tokens on `:root` / `[data-theme="light"]`
   - **`style.css`** — Shared styles for blog and 404 pages (old nav/waves design)
-  - **`script.js`** — Theme toggle and seal greeting for `index.html`; on desktop (≥1000×600) shrinks root font-size until the page fits one screen, else adds `.no-fit` to allow scrolling
+  - **`script.js`** — Theme toggle for `index.html`; on desktop (≥1000×600) shrinks root font-size until the page fits one screen, else adds `.no-fit` to allow scrolling
   - Desktop layout: no scroll, masthead + two newspaper columns (`.columns`, CSS multi-column). Mobile: single scrolling card
   - **`404.html`** — Custom 404 page
   - **`404.js`** — Theme toggle and hamburger menu for 404 page (external to comply with CSP)
-  - **`seal.png`** — Logo image; hero copy is a button that shows a "Hi!" speech bubble on click (`script.js`)
+  - **`seal.png`** — Logo image; the hero seal links to `CV.pdf`
   - **`CV.pdf`** — Resume PDF
 - **`server.js`** — Express 5: Helmet security headers, serves `public/`, 404 fallback
 - **`CV.tex`** — Resume LaTeX source (not served publicly)

@@ -148,44 +148,8 @@ a { color: var(--accent); }
     border: 3px solid var(--seal-ring);
 }
 
-.seal-bubble {
-    position: absolute;
-    top: -8%;
-    right: -22%;
-    padding: 0.3em 0.75em;
-    background: #FAC7B4;
-    color: #00213A;
-    font-size: 1.15rem;
-    font-weight: 700;
-    line-height: 1.2;
-    border-radius: 1em;
-    border: 2px solid #00213A;
-    opacity: 0;
-    transform: scale(0.4) translateY(10px);
-    transform-origin: bottom left;
-    pointer-events: none;
-}
-.seal-bubble::after {
-    content: "";
-    position: absolute;
-    left: 14%;
-    bottom: -9px;
-    border-width: 9px 7px 0 3px;
-    border-style: solid;
-    border-color: #00213A transparent transparent transparent;
-}
 
-.seal-button.is-happy .seal-bubble { animation: seal-bubble 1.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
 
-@keyframes seal-fade {
-    0% { opacity: 0; } 10% { opacity: 1; } 80% { opacity: 1; } 100% { opacity: 0; }
-}
-@keyframes seal-bubble {
-    0%   { opacity: 0; transform: scale(0.4) translateY(10px); }
-    15%  { opacity: 1; transform: scale(1) translateY(0); }
-    80%  { opacity: 1; transform: scale(1) translateY(0); }
-    100% { opacity: 0; transform: scale(0.9) translateY(-4px); }
-}
 
 /* Sections */
 section {
@@ -215,7 +179,6 @@ h2 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 0.3rem;
     width: 5.5rem;
     height: 5.5rem;
     border: 1px solid var(--line);
@@ -223,11 +186,11 @@ h2 {
     background: var(--tile-bg);
     color: var(--accent);
     font-weight: 700;
-    font-size: 0.95rem;
+    font-size: 1.5rem;
+    letter-spacing: 0.04em;
     text-decoration: none;
     transition: border-color 0.2s, background 0.2s;
 }
-.cv-button svg { width: 1.6rem; height: 1.6rem; }
 .cv-button:hover { border-color: var(--accent); background: var(--tag-bg); }
 .cv-button:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
 
@@ -385,7 +348,6 @@ footer {
     .profile .subtitle { margin-top: 0.15rem; font-size: 1.05rem; }
     .profile .affiliation { margin-top: 0.1rem; font-size: 0.9rem; }
     .hero-seal { width: 6.5rem; height: 6.5rem; }
-    .seal-bubble { font-size: 1rem; top: -24%; right: -14%; }
 
     /* Body flows like a newspaper: two balanced columns */
     .columns {
@@ -447,5 +409,4 @@ html.no-fit .columns { overflow: visible; }
 @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     .seal-button, .seal-button:hover, .seal-button:active { transform: none; }
-    .seal-button.is-happy .seal-bubble { animation-name: seal-fade; transform: none; }
 }

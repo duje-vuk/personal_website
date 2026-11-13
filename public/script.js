@@ -14,23 +14,6 @@
     });
 })();
 
-// ── Seal greeting: "Hi!" bubble on every click ──
-(function () {
-    var seal = document.querySelector('.seal-button');
-    if (!seal) return;
-    var timer;
-
-    seal.addEventListener('click', function () {
-        seal.classList.remove('is-happy');
-        void seal.offsetWidth; // restart the animation on repeat clicks
-        seal.classList.add('is-happy');
-        clearTimeout(timer);
-        timer = setTimeout(function () {
-            seal.classList.remove('is-happy');
-        }, 1800);
-    });
-})();
-
 // ── Desktop: shrink type until the page fits one screen ──
 (function () {
     var mq = window.matchMedia('(min-width: 1000px) and (min-height: 600px)');
