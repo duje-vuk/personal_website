@@ -9,12 +9,13 @@ Personal portfolio website for Duje Vukovac. Static site served via Express with
 ## Project Structure
 
 - **`public/`** — All frontend files (served by Express static)
-  - **`index.html`** — Main portfolio page (hero, about, merged experience & projects section, volunteering timeline, contact section)
-  - **`style.css`** — All styles; uses CSS custom properties for theming (`--salmon`, `--blue`, etc.)
-  - **`script.js`** — Theme toggle, mobile hamburger menu, smooth scroll
+  - **`index.html`** — Main page: single-column CV card (seal header, about, experience, education, skills & interests, 3 project tiles, contact)
+  - **`home.css`** — Styles for `index.html` only; theme tokens on `:root` / `[data-theme="light"]`
+  - **`style.css`** — Shared styles for blog and 404 pages (old nav/waves design)
+  - **`script.js`** — Theme toggle and seal greeting for `index.html`
   - **`404.html`** — Custom 404 page
   - **`404.js`** — Theme toggle and hamburger menu for 404 page (external to comply with CSP)
-  - **`seal.png`** — Logo image
+  - **`seal.png`** — Logo image; hero copy is a button that smiles and says "Hi!" on click (`script.js`)
   - **`CV.pdf`** — Resume PDF
 - **`server.js`** — Express 5: Helmet security headers, serves `public/`, 404 fallback
 - **`CV.tex`** — Resume LaTeX source (not served publicly)
