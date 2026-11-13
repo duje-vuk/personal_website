@@ -27,288 +27,123 @@
     <style>@font-face{font-family:'Satoshi';font-display:swap;src:local('Satoshi')}</style>
 
     <link rel="canonical" href="https://dujevukovac.com">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="home.css">
 
 </head>
 <body>
 
-<!-- Skip to content for accessibility -->
 <a href="#main" class="skip-link">Skip to main content</a>
 
-<!-- Navigation -->
-<nav aria-label="Main navigation">
-    <a href="#hero" class="logo" aria-label="Duje Vukovac — home"><img src="seal.png" alt="Seal logo" class="logo-img"><span class="logo-text">Home</span></a>
+<main id="main" class="card">
 
-    <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
-
-    <div class="nav-links" role="menubar">
-        <a href="#about" role="menuitem">About</a>
-        <a href="#experience" role="menuitem">Experience</a>
-        <a href="#volunteering" role="menuitem">Volunteering</a>
-        <a href="#contact" role="menuitem">Contact</a>
-        <a href="blog.html" role="menuitem">Blog</a>
-        <a href="CV.pdf" class="nav-resume" target="_blank" aria-label="Open resume as PDF">Resume ↓</a>
+    <div class="toolbar">
+        <a href="blog.html">Blog</a>
+        <a href="CV.pdf" target="_blank" aria-label="Open resume as PDF">Resume ↓</a>
         <button class="theme-toggle" aria-label="Toggle dark/light mode" title="Toggle theme">
             <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
             <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
         </button>
     </div>
-</nav>
 
-<main id="main">
+    <header class="profile" id="hero">
+        <button type="button" class="seal-button" aria-label="Say hi to the seal">
+            <img src="seal.png" alt="" class="hero-seal" width="160" height="160">
+            <svg class="seal-face" viewBox="28 0 539 539" aria-hidden="true">
+                <path d="M362 122 Q371 108 380 122"/>
+                <path d="M384 132 Q397 152 412 128"/>
+            </svg>
+            <span class="seal-bubble" aria-hidden="true">Hi!</span>
+        </button>
+        <h1>Duje Vukovac</h1>
+        <p class="subtitle">Computer Science student building AI-powered software</p>
+        <p class="affiliation">Vrije Universiteit Amsterdam · Amsterdam, NL</p>
+    </header>
 
-    <!-- Hero Section -->
-    <section id="hero" aria-label="Introduction">
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1>Duje Vukovac</h1>
-                <p class="tagline">CS student at VU Amsterdam.<br>Interested in AI-assisted tooling and what good software looks like.<br>Currently shipping side projects and documenting the learning process.</p>
-                <div class="hero-cta">
-                    <a href="#contact" class="cta-button cta-outline">Get in touch</a>
-                    <a href="CV.pdf" class="cta-button cta-outline" target="_blank">Download Resume</a>
-                </div>
-            </div>
-            <div class="hero-photo">
-                <button type="button" class="seal-button" aria-label="Say hi to the seal">
-                    <img src="seal.png" alt="" class="hero-seal">
-                    <svg class="seal-face" viewBox="28 0 539 539" aria-hidden="true">
-                        <path d="M362 122 Q371 108 380 122"/>
-                        <path d="M384 132 Q397 152 412 128"/>
-                    </svg>
-                    <span class="seal-bubble" aria-hidden="true">Hi!</span>
-                </button>
-            </div>
+    <section id="about" aria-labelledby="about-h">
+        <h2 id="about-h">About me</h2>
+        <p class="prose">I'm a VU Computer Science student who's into AI-powered software. Currently learning core SWE skills while also building self-study tools and exploring ML/HCI/AI tooling on the side. Increasingly drawn to product-oriented roles, building with an obsessive focus on users.</p>
+    </section>
+
+    <section id="experience" aria-labelledby="experience-h">
+        <h2 id="experience-h">Experience</h2>
+        <div class="entry">
+            <h3>Discussion Co-lead <span>— Safe AI Netherlands (SAIN)</span></h3>
+            <p class="meta">Volunteer · Amsterdam · Aug 2026–</p>
+            <p>Run the weekly discussion sessions end to end: scheduling, picking each week’s paper, preparing the material and guiding the discussion on the day.</p>
+        </div>
+        <div class="entry">
+            <h3>Co-Organizer <span>— AI Spring Amsterdam</span></h3>
+            <p class="meta">Volunteer · VU Amsterdam · Apr 2026–</p>
+            <p>Co-organize weekly AI paper reading events. Co-organized the July 2026 AI papers showcase with SAIN and AISO, where I presented on Chain-of-Thought improvements for more efficient LLM reasoning.</p>
+        </div>
+        <div class="entry">
+            <h3>Head of Mod Development <span>— Hearts of Iron IV Community</span></h3>
+            <p class="meta">2021–2023</p>
+            <p>Built and maintained a multisystem mod in Paradox’s scripting framework, reaching hundreds of downloads, and improved in-game performance by about 30% through optimization.</p>
+        </div>
+        <div class="entry">
+            <h3>Community Manager <span>— Hearts of Iron IV Community</span></h3>
+            <p class="meta">2021–2023 · concurrent</p>
+            <p>Grew the community from 30 to 500+ members with a team of 8 moderators, ran 50+ events at 80%+ capacity and brokered partnerships for 2 competitive tournaments.</p>
         </div>
     </section>
 
-    <!-- Wave: hero → gap -->
-    <div class="wave-bottom-blue" aria-hidden="true" style="background: var(--hero-bg);">
-        <svg viewBox="0 0 1440 150" preserveAspectRatio="none">
-            <path d="M0,0 C180,80 360,20 540,60 C720,100 900,20 1080,70 C1200,100 1320,40 1440,60 L1440,150 L0,150 Z" fill="var(--salmon)"/>
-        </svg>
-    </div>
-    <div class="salmon-gap" aria-hidden="true"></div>
-    <!-- Wave: gap → about -->
-    <div class="wave-top-blue" aria-hidden="true">
-        <svg viewBox="0 0 1440 150" preserveAspectRatio="none">
-            <path d="M0,150 C200,80 400,130 600,70 C800,10 1000,100 1200,50 C1320,20 1380,70 1440,40 L1440,0 L0,0 Z" fill="var(--salmon)"/>
-        </svg>
-    </div>
-
-    <!-- About Section -->
-    <section id="about" aria-label="About me">
-        <div class="container">
-            <h2>About Me</h2>
-            <div class="about-grid">
-                <div class="about-bio">
-                    <p>I'm a VU Computer Science student who's into AI-powered software. Currently learning core SWE skills while also building self-study tools and exploring ML/HCI/AI tooling on the side. Increasingly drawn to product-oriented roles, building with an obsessive focus on users.</p>
-                </div>
-                <div class="about-skills">
-                    <h3>Skills & Tech Stack</h3>
-                    <div class="skills-grid">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">C</span>
-                        <span class="skill-tag">C++</span>
-                        <span class="skill-tag">JavaScript</span>
-                        <span class="skill-tag">HTML & CSS</span>
-                        <span class="skill-tag">Flask</span>
-                        <span class="skill-tag">Node.js</span>
-                        <span class="skill-tag">Express</span>
-                        <span class="skill-tag">SQLite</span>
-                        <span class="skill-tag">Git</span>
-                        <span class="skill-tag">Assembly (x86, IJVM)</span>
-                        <span class="skill-tag">MATLAB</span>
-                        <span class="skill-tag">Claude Code</span>
-                        <span class="skill-tag">Groq API</span>
-                        <span class="skill-tag">REST APIs</span>
-                        <span class="skill-tag">AI-Assisted Development</span>
-                    </div>
-                </div>
-            </div>
+    <section id="education" aria-labelledby="education-h">
+        <h2 id="education-h">Education</h2>
+        <div class="entry">
+            <h3>BSc Computer Science</h3>
+            <p class="meta">Vrije Universiteit Amsterdam · 2025–2028</p>
         </div>
     </section>
 
-    <!-- Wave: about → gap -->
-    <div class="wave-bottom-blue" aria-hidden="true">
-        <svg viewBox="0 0 1440 150" preserveAspectRatio="none">
-            <path d="M0,0 C180,80 360,20 540,60 C720,100 900,20 1080,70 C1200,100 1320,40 1440,60 L1440,150 L0,150 Z" fill="var(--salmon)"/>
-        </svg>
-    </div>
-    <div class="salmon-gap" aria-hidden="true"></div>
-
-    <!-- Wave: gap → projects -->
-    <div class="wave-top-blue" aria-hidden="true">
-        <svg viewBox="0 0 1440 150" preserveAspectRatio="none">
-            <path d="M0,150 C200,80 400,130 600,70 C800,10 1000,100 1200,50 C1320,20 1380,70 1440,40 L1440,0 L0,0 Z" fill="var(--salmon)"/>
-        </svg>
-    </div>
-
-    <!-- Experience & Projects Section -->
-    <section id="experience" aria-label="Experience and projects">
-        <div class="container">
-            <h2>Experience &amp; Projects</h2>
-            <div class="projects-grid" id="projects">
-                <a href="https://github.com/duje-vuk/StudyTelegramBot" target="_blank" rel="noopener noreferrer" class="project-card project-card-link">
-                    <div class="project-icon" aria-hidden="true">&#129302;</div>
-                    <div class="project-head"><h3>StudyBot</h3><span class="project-year">2025</span></div>
-                    <p>Custom Telegram bot connected to a Groq API that turns study materials into active recall questions. Supports PDF uploads, approve/reject filtering, scheduled question delivery, and weak-topic tracking. 130+ vetted questions generated in one week.</p>
-                    <div class="project-tags">
-                        <span>Python</span>
-                        <span>Telegram API</span>
-                        <span>Groq API</span>
-                        <span>AI-Assisted Development</span>
-                    </div>
-                </a>
-                <a href="https://github.com/duje-vuk/DailyBriefing" target="_blank" rel="noopener noreferrer" class="project-card project-card-link">
-                    <div class="project-icon" aria-hidden="true">&#128240;</div>
-                    <div class="project-head"><h3>Daily Briefing</h3><span class="project-year">2025</span></div>
-                    <p>AI-powered news dashboard. Node.js app that aggregates Reddit and NewsAPI feeds, with Groq LLM integration for AI-generated summaries. Proxied multiple APIs through an Express backend.</p>
-                    <div class="project-tags">
-                        <span>Node.js</span>
-                        <span>Express</span>
-                        <span>Groq API</span>
-                        <span>NewsAPI</span>
-                        <span>Reddit API</span>
-                        <span>AI-Assisted Development</span>
-                    </div>
-                </a>
-                <a href="https://github.com/duje-vuk/StartupEvalTool" target="_blank" rel="noopener noreferrer" class="project-card project-card-link">
-                    <div class="project-icon" aria-hidden="true">&#128200;</div>
-                    <div class="project-head"><h3>Startup Evaluation Tool</h3><span class="project-year">2025</span></div>
-                    <p>Flask web app connected to the Hacker News API and Groq LLM as a daily startup judgment trainer. Fetches Show HN posts, selects and structures the 3 most interesting startups for evaluation (viability, reasoning, risk, confidence), then reveals an AI-generated critique post-submission. Sessions persist in SQLite with full history tracking.</p>
-                    <div class="project-tags">
-                        <span>Python</span>
-                        <span>Flask</span>
-                        <span>SQLite</span>
-                        <span>Groq API</span>
-                        <span>Hacker News API</span>
-                        <span>AI-Assisted Development</span>
-                    </div>
-                </a>
-            </div>
-
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-marker" aria-hidden="true"></div>
-                    <div class="timeline-content">
-                        <span class="timeline-date">2021 — 2023</span>
-                        <p class="timeline-org"><em>Hearts of Iron IV Community</em></p>
-                        <h3>Head of Mod Development</h3>
-                        <p>Built, maintained and optimized a multisystem mod using Paradox's scripting framework, reaching hundreds of downloads. Achieved ~30% improvement in in-game performance through mod optimization.</p>
-                        <h3>Community Manager <em>(concurrent)</em></h3>
-                        <p>Grew community from 30 to 500+ members, leading a team of 8 moderators. Organized 50+ events with 80%+ capacity fill rate. Built advertising bots and tracked member analytics (performance stats, win/loss ratios) via spreadsheets. Brokered partnerships yielding shared sessions and 2 competitive tournaments. Handled moderation and conflict resolution across the community.</p>
-                    </div>
-                </div>
-
-            </div>
+    <section id="skills" aria-labelledby="skills-h">
+        <h2 id="skills-h">Skills &amp; Interests</h2>
+        <div class="tags">
+            <span>Python</span><span>C</span><span>C++</span><span>JavaScript</span><span>HTML &amp; CSS</span>
+            <span>Flask</span><span>Node.js</span><span>Express</span><span>SQLite</span><span>Git</span>
+            <span>Assembly (x86, IJVM)</span><span>MATLAB</span><span>Claude Code</span><span>Groq API</span><span>REST APIs</span>
+            <span>AI Safety</span><span>Photography</span>
+            <span>Croatian</span><span>English</span><span>Dutch</span><span>German</span>
         </div>
     </section>
 
-    <!-- Wave: experience → gap -->
-    <div class="wave-bottom-blue" aria-hidden="true">
-        <svg viewBox="0 0 1440 150" preserveAspectRatio="none">
-            <path d="M0,0 C180,90 360,10 540,70 C720,130 900,30 1080,80 C1200,110 1320,40 1440,50 L1440,150 L0,150 Z" fill="var(--salmon)"/>
-        </svg>
-    </div>
-    <div class="salmon-gap" aria-hidden="true"></div>
-
-    <!-- Wave: gap → contact -->
-    <div class="wave-top-blue" aria-hidden="true">
-        <svg viewBox="0 0 1440 150" preserveAspectRatio="none">
-            <path d="M0,150 C120,60 280,120 440,70 C600,20 760,100 920,60 C1080,20 1240,80 1440,50 L1440,0 L0,0 Z" fill="var(--salmon)"/>
-        </svg>
-    </div>
-
-    <!-- Volunteering Section -->
-    <section id="volunteering" aria-label="Volunteering">
-        <div class="container">
-            <h2>Volunteering</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-marker" aria-hidden="true"></div>
-                    <div class="timeline-content">
-                        <span class="timeline-date">Aug 2026 &mdash; Present</span>
-                        <p class="timeline-org"><em>Safe AI Netherlands (SAIN) &middot; Amsterdam, NL</em></p>
-                        <h3>Discussion Co-lead</h3>
-                        <p>Run the weekly discussion sessions end to end: scheduling them, selecting the paper topic each week, and preparing the material the group works through. On the day I guide the discussion itself, keeping it on track and drawing out contributions from everyone in the room.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-marker" aria-hidden="true"></div>
-                    <div class="timeline-content">
-                        <span class="timeline-date">Apr 2026 &mdash; Present</span>
-                        <p class="timeline-org"><em>AI Spring Amsterdam &middot; Amsterdam, NL</em></p>
-                        <h3>Co-Organizer</h3>
-                        <p>Co-organize the weekly AI paper reading events at VU Amsterdam, covering logistics, topic suggestion, and hosting. Co-organized the July 2026 end-of-year AI papers showcase together with Safe AI Netherlands (SAIN) and AISO, where I presented an overview of Chain-of-Thought improvements toward more efficient LLM reasoning.</p>
-                    </div>
-                </div>
-            </div>
+    <section id="projects" aria-labelledby="projects-h">
+        <h2 id="projects-h">Projects</h2>
+        <p class="section-note">Public side projects, all on GitHub.</p>
+        <div class="projects">
+            <a class="project" href="https://github.com/duje-vuk/StudyTelegramBot" target="_blank" rel="noopener noreferrer">
+                <span class="emoji" aria-hidden="true">🤖</span>
+                <h3>StudyBot</h3>
+                <p>Telegram bot that turns study material into active-recall questions, with PDF uploads, scheduling and weak-topic tracking.</p>
+                <span class="stack">Python · Telegram · Groq</span>
+            </a>
+            <a class="project" href="https://github.com/duje-vuk/DailyBriefing" target="_blank" rel="noopener noreferrer">
+                <span class="emoji" aria-hidden="true">📰</span>
+                <h3>Daily Briefing</h3>
+                <p>News dashboard aggregating Reddit and NewsAPI feeds, with AI-generated summaries through an Express backend.</p>
+                <span class="stack">Node.js · Express · Groq</span>
+            </a>
+            <a class="project" href="https://github.com/duje-vuk/StartupEvalTool" target="_blank" rel="noopener noreferrer">
+                <span class="emoji" aria-hidden="true">📈</span>
+                <h3>Startup Evaluation Tool</h3>
+                <p>Daily startup-judgment trainer: rate three Show HN launches, then compare against an AI critique.</p>
+                <span class="stack">Flask · SQLite · Groq</span>
+            </a>
         </div>
     </section>
 
-    <!-- Wave: volunteering -> gap -->
-    <div class="wave-bottom-blue" aria-hidden="true">
-        <svg viewBox="0 0 1440 150" preserveAspectRatio="none">
-            <path d="M0,0 C140,60 300,110 460,60 C620,10 780,90 940,50 C1100,10 1280,80 1440,40 L1440,150 L0,150 Z" fill="var(--salmon)"/>
-        </svg>
-    </div>
-    <div class="salmon-gap" aria-hidden="true"></div>
-
-    <!-- Wave: gap -> contact -->
-    <div class="wave-top-blue" aria-hidden="true">
-        <svg viewBox="0 0 1440 150" preserveAspectRatio="none">
-            <path d="M0,150 C160,90 340,40 500,90 C660,140 820,50 980,80 C1140,110 1300,50 1440,80 L1440,0 L0,0 Z" fill="var(--salmon)"/>
-        </svg>
-    </div>
-
-    <!-- Contact Section -->
-    <section id="contact" aria-label="Contact">
-        <div class="container">
-            <h2>Get In Touch</h2>
-            <div class="contact-links">
-                <a href="mailto:dvcsmail@gmail.com" class="cta-button contact-submit">dvcsmail@gmail.com</a>
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/in/dujevukovac/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                        LinkedIn
-                    </a>
-                    <a href="https://github.com/duje-vuk" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                        GitHub
-                    </a>
-                </div>
-            </div>
+    <section id="contact" class="contact" aria-labelledby="contact-h">
+        <h2 id="contact-h">Contact</h2>
+        <div class="contact-row">
+            <a href="mailto:dvcsmail@gmail.com"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg> dvcsmail@gmail.com</a>
+            <a href="https://www.linkedin.com/in/dujevukovac/" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg> LinkedIn</a>
+            <a href="https://github.com/duje-vuk" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg> GitHub</a>
         </div>
     </section>
 
 </main>
 
-<!-- Footer -->
-<footer role="contentinfo">
-    <div class="container footer-inner">
-        <div class="footer-links">
-            <a href="#hero">Home</a>
-            <a href="#about">About</a>
-            <a href="#experience">Experience &amp; Projects</a>
-            <a href="#volunteering">Volunteering</a>
-            <a href="#contact">Contact</a>
-            <a href="blog.html">Blog</a>
-        </div>
-        <div class="footer-social">
-            <a href="https://www.linkedin.com/in/dujevukovac/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-            </a>
-            <a href="https://github.com/duje-vuk" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-            </a>
-        </div>
-        <p class="footer-copy">&copy; 2026 Duje Vukovac. All rights reserved.</p>
-    </div>
-</footer>
+<footer>© 2026 Duje Vukovac</footer>
 
 <script src="script.js"></script>
 </body>
