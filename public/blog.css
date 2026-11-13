@@ -64,7 +64,6 @@ a { color: var(--accent); }
     box-shadow: var(--shadow);
     padding: 2rem 3rem 2.5rem;
     transition: background 0.3s;
-    animation: card-in 0.4s ease-out backwards;
 }
 
 /* Top-right utility links */
@@ -185,7 +184,6 @@ a { color: var(--accent); }
     color: var(--text);
     text-decoration: none;
     transition: border-color 0.2s, background 0.2s;
-    animation: focus-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) backwards;
 }
 .post-card:hover { border-color: var(--accent); background: var(--tag-bg); }
 .post-card:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
@@ -321,19 +319,6 @@ footer {
     color: #00213A;
     opacity: 0.75;
 }
-
-/* ── Entrance (quick, same feel as home) ── */
-@keyframes card-in  { from { opacity: 0; } }
-@keyframes focus-in { from { opacity: 0; filter: blur(6px); transform: scale(0.98); } }
-.masthead, .blog-controls, .post-page-header, .post-body-content {
-    animation: focus-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) backwards;
-}
-.masthead { animation-delay: 0.1s; }
-.blog-controls, .post-page-header { animation-delay: 0.25s; }
-.post-card, .post-body-content { animation-delay: 0.4s; }
-.post-card:nth-child(2) { animation-delay: 0.5s; }
-.post-card:nth-child(3) { animation-delay: 0.6s; }
-.post-card:nth-child(n+4) { animation-delay: 0.7s; }
 
 @media (max-width: 680px) {
     body { padding: 1rem 0.75rem; }

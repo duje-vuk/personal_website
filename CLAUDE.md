@@ -9,7 +9,7 @@ Personal portfolio website for Duje Vukovac. Static site served via Express with
 ## Project Structure
 
 - **`public/`** — All frontend files (served by Express static)
-  - **`index.html`** — Main page: single-column CV card (seal header, about, experience, education + certifications, skills, 3 project tiles, contact); desktop uses two fixed `.col` columns inside `.columns`
+  - **`index.html`** — Main page: single-column CV card (seal header, about, experience, education, skills, 3 project tiles, contact); desktop flows sections through two balanced CSS columns (`.columns`)
   - **`home.css`** — Styles for `index.html` only; theme tokens on `:root` / `[data-theme="light"]`
   - **`blog.css`** — Self-contained styles for `blog.html` and `blog-post.html` (same card design and theme tokens as `home.css`)
   - **`style.css`** — Styles for the 404 page only (old nav/waves design)
