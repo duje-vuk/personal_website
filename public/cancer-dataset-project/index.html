@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cancer Data Finder NL</title>
+<style>
+  :root {
+    --bg: #ffffff; --panel: #ffffff; --text: #000000; --muted: #5f6368;
+    --border: #dfe1e5; --hover: #f1f3f4; --link: #1a0dab; --accent: #c2185b;
+    --shadow: 0 4px 12px rgba(32,33,36,.18);
+    /* Types = cool colours (what kind of source).  Access = traffic light (how hard to get). */
+    --c-registry: #2f6bd0; --t-registry: #ffffff;   /* blue    */
+    --c-cohort:   #7450c0; --t-cohort:   #ffffff;   /* purple  */
+    --c-biobank:  #b0357a; --t-biobank:  #ffffff;   /* magenta */
+    --c-catalog:  #0a7d99; --t-catalog:  #ffffff;   /* cyan    */
+    --c-open:     #a8e0b5; --t-open:     #000000;   /* green: just use it */
+    --c-request:  #fde68a; --t-request:  #000000;   /* yellow: formal application */
+    --c-contact:  #fcc58c; --t-contact:  #000000;   /* orange: no procedure, ask the holder */
+    --c-broken:   #b3261e; --t-broken:   #ffffff;
+    --c-gray: #eceff1; --c-gray-text: #000000;   /* generic pills: cancer types */
+    --clear-bg: #1f5bc4; --clear-border: #1a4fa8; --clear-text: #ffffff;
+  }
+  :root[data-theme="dark"] {
+    --bg: #202124; --panel: #303134; --text: #e8eaed; --muted: #9aa0a6;
+    --border: #5f6368; --hover: #3c4043; --link: #8ab4f8; --accent: #f48fb1;
+    --shadow: 0 4px 12px rgba(0,0,0,.5);
+    --c-registry: #1f4f9a; --t-registry: #ffffff;
+    --c-cohort:   #5b3a9a; --t-cohort:   #ffffff;
+    --c-biobank:  #8a2560; --t-biobank:  #ffffff;
+    --c-catalog:  #0b5f75; --t-catalog:  #ffffff;
+    --c-open:     #1e6b3a; --t-open:     #ffffff;
+    --c-request:  #7a6400; --t-request:  #ffffff;
+    --c-contact:  #9a4d10; --t-contact:  #ffffff;
+    --c-broken:   #8c1d18; --t-broken:   #ffffff;
+    --c-gray: #4d5157; --c-gray-text: #ffffff;
+    --clear-bg: #1d3557; --clear-border: #5b8fd6; --clear-text: #ffffff;
+  }
+  * { box-sizing: border-box; }
+
+  /* ---------- short transitions ---------- */
+  /* Theme switch: colours fade instead of snapping. */
+  *, *::before, *::after {
+    transition: background-color .2s ease, color .2s ease, border-color .2s ease,
+                fill .2s ease, stroke .2s ease, box-shadow .2s ease, outline-color .2s ease;
+  }
+  /* Theme icon spins in when it changes. */
+  #theme svg { animation: icon-in .25s ease-out; }
+  @keyframes icon-in { from { transform: rotate(-90deg) scale(.4); opacity: 0; } to { transform: none; opacity: 1; } }
+  /* Selecting a category pill: quick pop. */
+  #fpanel .pill.on { animation: pop .18s ease-out; }
+  @keyframes pop { 0% { transform: scale(.92); } 60% { transform: scale(1.08); } 100% { transform: scale(1); } }
+  /* Deselecting: quick shrink-and-settle. */
+  #fpanel .pill.unpop { animation: unpop .18s ease-out; }
+  @keyframes unpop { 0% { transform: scale(1.04); } 55% { transform: scale(.88); } 100% { transform: scale(1); } }
+  /* Results dropdown + filter panel: quick fade in, mirrored fade out. */
+  #drop.open, #fpanel.open, #gpanel.open, #hpanel.open { animation: pop-in .18s ease-out both; }
+  #drop.closing, #fpanel.closing, #gpanel.closing, #hpanel.closing { animation: pop-out .18s ease-in both; pointer-events: none; }
+  @keyframes pop-in  { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+  @keyframes pop-out { from { opacity: 1; transform: none; } to { opacity: 0; transform: translateY(-4px); } }
+  /* Don't fade on first paint (saved dark theme), and respect reduced-motion. */
+  .no-anim *, .no-anim *::before, .no-anim *::after { transition: none !important; animation: none !important; }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition: none !important; animation: none !important; }
+  }
+  html, body { margin: 0; }
+  body { background: var(--bg); color: var(--text); font: 15px/1.4 Arial, system-ui, sans-serif; }
+
+  /* Background photo: covers the page, nearly invisible on the left (search + results),
+     fading in to full strength on the far right. Tweak the mask stops to adjust. */
+  body::before {
+    content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+    background: url("/cancer-dataset-project/bg-cell.webp") right center / cover no-repeat;
+    -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,.06) 0%, rgba(0,0,0,.10) 35%, rgba(0,0,0,.55) 65%, #000 100%);
+            mask-image: linear-gradient(to right, rgba(0,0,0,.06) 0%, rgba(0,0,0,.10) 35%, rgba(0,0,0,.55) 65%, #000 100%);
+  }
+  /* Phones: the results use the full width, so keep the photo faint everywhere. */
+  @media (max-width: 520px) { body::before { opacity: .35; } }
+
+  /* upper right: [theme ○] [language ▢] */
+  #lang {
+    position: fixed; top: 16px; right: 16px; z-index: 30;
+    width: 40px; height: 40px; padding: 0; border-radius: 4px; overflow: hidden; cursor: pointer;
+    border: 1px solid var(--border); background: var(--panel);
+  }
+  #lang { display: grid; place-items: center; }
+  #lang svg { display: block; width: 26px; height: 16px; outline: 1px solid rgba(0,0,0,.15); }
+  #lang:hover { box-shadow: var(--shadow); }
+  #theme {
+    position: fixed; top: 16px; right: 68px; z-index: 30;
+    width: 40px; height: 40px; border-radius: 50%;
+    border: 1px solid var(--border); background: var(--panel); color: var(--text);
+    cursor: pointer; padding: 0; display: grid; place-items: center;
+  }
+  #theme:hover { background: var(--hover); }
+  #theme svg { width: 20px; height: 20px; }
+  #theme .moon { fill: #000000; }
+  :root[data-theme="dark"] #theme .moon { fill: #ffffff; }
+  #theme .sun { fill: #FDB813; stroke: #FDB813; }   /* always yellow */
+
+  /* ---------- top-left bar ---------- */
+  .bar { display: flex; align-items: center; gap: 12px; padding: 16px 124px 0 16px; max-width: 808px; }
+  .search { position: relative; flex: 1; min-width: 0; }
+
+  #q {
+    width: 100%; height: 44px; padding: 0 14px; font-size: 16px;
+    border: 1px solid var(--border); border-radius: 4px;
+    background: var(--panel); color: var(--text); outline: none;
+  }
+  #q:hover { box-shadow: var(--shadow); }
+  #q:focus { border-color: var(--link); box-shadow: var(--shadow); }
+
+  /* ---------- filter button + panel ---------- */
+  .tools { position: relative; flex: none; display: flex; gap: 8px; }
+  #fbtn, #gbtn, #hbtn {
+    position: relative; width: 44px; height: 44px; padding: 0; border-radius: 4px; cursor: pointer;
+    border: 1px solid var(--border); background: var(--panel); color: var(--text);
+    display: grid; place-items: center;
+  }
+  #fbtn:hover, #fbtn[aria-expanded="true"], #gbtn:hover, #gbtn[aria-expanded="true"],
+  #hbtn:hover, #hbtn[aria-expanded="true"] { background: var(--hover); }
+  #fbtn svg, #gbtn svg, #hbtn svg { width: 20px; height: 20px; }
+  #fbtn .n {
+    position: absolute; top: -7px; right: -7px; min-width: 18px; height: 18px; padding: 0 5px;
+    background: var(--accent); color: #fff; border-radius: 9px; font-size: 11px; line-height: 18px;
+  }
+  #fpanel {
+    /* Opens directly to the RIGHT of the filter icon, so it never covers the results. */
+    display: none; position: absolute; top: 0; left: calc(100% + 10px); z-index: 20; width: 300px;
+    background: var(--panel); border: 1px solid var(--border); border-radius: 12px; box-shadow: var(--shadow);
+    padding: 12px 14px; max-height: calc(100vh - 90px); overflow-y: auto;
+  }
+  #fpanel.open, #gpanel.open, #hpanel.open { display: block; }
+  #fpanel h3 { font-size: 12px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); margin: 10px 0 6px; }
+  #fpanel h3:first-child { margin-top: 0; }
+  #fpanel .opts { display: flex; flex-wrap: wrap; gap: 6px; }
+  #fpanel .pill { cursor: pointer; border: 2px solid transparent; }
+  #fpanel .pill:hover { border-color: var(--border); }
+  #fpanel .pill.on { border-color: var(--text); font-weight: bold; }
+  #fpanel .pill.on::before { content: "✓ "; }
+  .factions { display: flex; justify-content: flex-end; margin-top: 12px; }
+  #fclear {
+    padding: 5px 12px; border-radius: 4px; cursor: pointer; font-size: 13px;
+    background: var(--clear-bg); color: var(--clear-text); border: 1px solid var(--clear-border);
+  }
+  #fclear:hover { filter: brightness(.96); }
+
+  /* ---------- results dropdown ---------- */
+  #drop {
+    display: none; position: absolute; left: 0; right: 0; top: 50px; z-index: 10;
+    background: var(--panel); border: 1px solid var(--border); border-radius: 14px; box-shadow: var(--shadow);
+    padding: 6px 0;
+  }
+  #drop.open { display: block; }
+  .row {
+    display: grid; grid-template-columns: 1fr auto; gap: 14px; align-items: start;
+    padding: 10px 18px; text-decoration: none; color: inherit;
+  }
+  .row + .row { border-top: 1px solid var(--border); }   /* divider between results */
+  .row:hover, .row.active { background: var(--hover); }
+  .row .name { color: var(--link); font-size: 15px; }
+  .row .meta { color: var(--muted); font-size: 13px; }
+  .pills { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
+  .pill {
+    display: inline-block; padding: 1px 9px; border-radius: 4px; white-space: nowrap;
+    font-size: 12px; line-height: 18px; color: var(--c-gray-text); background: var(--c-gray);
+  }
+  .pill.registry { background: var(--c-registry); color: var(--t-registry); }
+  .pill.cohort   { background: var(--c-cohort); color: var(--t-cohort); }
+  .pill.biobank  { background: var(--c-biobank); color: var(--t-biobank); }
+  .pill.catalog  { background: var(--c-catalog); color: var(--t-catalog); }
+  /* ---------- access guide panel ---------- */
+  #gpanel {
+    display: none; position: absolute; top: 0; left: calc(100% + 10px); z-index: 20; width: 420px;
+    background: var(--panel); border: 1px solid var(--border); border-radius: 12px; box-shadow: var(--shadow);
+    padding: 12px 14px; max-height: calc(100vh - 32px); overflow-y: auto;
+  }
+  #gq {
+    width: 100%; height: 34px; padding: 0 10px; font-size: 14px; border-radius: 4px;
+    border: 1px solid var(--border); background: var(--panel); color: var(--text); outline: none;
+  }
+  #gq:focus { border-color: var(--link); }
+  #gsug { margin-top: 6px; }
+  .gs { display: block; width: 100%; text-align: left; padding: 6px 8px; border: 0; border-radius: 4px;
+        background: none; color: var(--text); cursor: pointer; font-size: 14px; }
+  .gs:hover, .gs.active { background: var(--hover); }
+  .gs small { color: var(--muted); }
+  .gs .tag { float: right; font-size: 11px; color: var(--muted); }
+  .gs .tag.yes { color: var(--link); }
+  .gcard h2 { font-size: 16px; margin: 4px 0 2px; }
+  .gcard .meta { color: var(--muted); font-size: 13px; margin-bottom: 6px; }
+  .gcard h3 { font-size: 12px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); margin: 14px 0 6px; }
+  .gcard ol, .gcard ul { margin: 0; padding-left: 20px; font-size: 14px; }
+  .gcard li { margin: 4px 0; }
+  .src { font-size: 11px; color: var(--link); text-decoration: none; white-space: nowrap; margin-left: 4px; }
+  .src:hover { text-decoration: underline; }
+  .gfoot { display: flex; align-items: center; justify-content: space-between; gap: 10px;
+           margin-top: 14px; padding-top: 10px; border-top: 1px solid var(--border); font-size: 12px; color: var(--muted); }
+  .gbtn-go { padding: 6px 12px; border-radius: 4px; font-size: 13px; text-decoration: none; white-space: nowrap;
+             background: var(--clear-bg); color: var(--clear-text); border: 1px solid var(--clear-border); }
+  /* Back to dataset list: square icon button, same blue as "Start here". */
+  .gback {
+    width: 32px; height: 32px; padding: 0; border-radius: 4px; cursor: pointer;
+    display: grid; place-items: center; margin-bottom: 6px;
+    background: var(--clear-bg); color: #ffffff; border: 1px solid var(--clear-border);
+  }
+  .gback svg { width: 18px; height: 18px; }
+  .gback:hover { filter: brightness(1.12); }
+  .gback:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
+  .gnote { color: var(--muted); font-size: 13px; padding: 8px 2px; }
+
+  /* ---------- help / tutorial panel ---------- */
+  #hpanel {
+    display: none; position: absolute; top: 0; left: calc(100% + 10px); z-index: 20; width: 400px;
+    background: var(--panel); border: 1px solid var(--border); border-radius: 12px; box-shadow: var(--shadow);
+    padding: 9px 16px 10px; max-height: calc(100vh - 32px); overflow-y: auto; font-size: 13px;
+  }
+  #hpanel h2 { font-size: 15px; margin: 0 0 3px; }
+  #hpanel h3 { font-size: 12px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted);
+               margin: 7px 0 2px; display: flex; align-items: center; gap: 6px; }
+  #hpanel h3 svg { width: 14px; height: 14px; }
+  #hpanel p { margin: 0; line-height: 1.35; }
+  #hpanel .legend { display: grid; grid-template-columns: 92px 1fr; gap: 3px 8px; align-items: center; margin-top: 6px; }
+  #hpanel .legend > span:nth-child(odd) { color: var(--muted); font-size: 12px; }
+  #hpanel .legend .row-pills { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; }
+  #hpanel .arrow { color: var(--muted); font-size: 11px; }
+  #hpanel ul.keys { margin: 2px 0 0; padding-left: 18px; }
+  #hpanel ul.keys li { margin: 3px 0; }
+  kbd { display: inline-block; min-width: 20px; padding: 0 5px; border: 1px solid var(--border); border-bottom-width: 2px;
+        border-radius: 4px; font: 11px/16px Arial, sans-serif; text-align: center; background: var(--hover); color: var(--text); }
+
+  .pill.open     { background: var(--c-open); color: var(--t-open); }
+  .pill.request  { background: var(--c-request); color: var(--t-request); }
+  .pill.contact  { background: var(--c-contact); color: var(--t-contact); }
+  .pill.broken   { background: var(--c-broken); color: var(--t-broken); }
+  .info { color: var(--muted); font-size: 13px; padding: 6px 18px; }
+
+  @media (max-width: 520px) {
+    .bar { padding-right: 116px; }
+    .row { grid-template-columns: 1fr; }
+    .pills { flex-direction: row; flex-wrap: wrap; align-items: flex-start; }
+  }
+  /* Not enough room on the right (theme/language buttons): fall back to opening below. */
+  @media (max-width: 1169px) {
+    #fpanel { top: 52px; left: auto; right: 0; width: min(300px, calc(100vw - 32px)); }
+  }
+  @media (max-width: 1289px) {
+    #hpanel { top: 52px; left: auto; right: 0; width: min(400px, calc(100vw - 32px)); max-height: calc(100vh - 90px); }
+    #gpanel { top: 52px; left: auto; right: 0; width: min(420px, calc(100vw - 32px)); max-height: calc(100vh - 90px); }
+  }
+</style>
+<script src="/cancer-dataset-project/prefs.js"></script>
+</head>
+<body class="no-anim">
+<button id="theme" type="button"></button>
+<button id="lang" type="button"></button>
+
+<div class="bar">
+  <div class="search" id="search">
+    <input id="q" type="search" autocomplete="off" autofocus spellcheck="false"
+           role="combobox" aria-expanded="false" aria-controls="drop">
+    <div id="drop" role="listbox"></div>
+  </div>
+  <div class="tools" id="tools">
+    <button id="fbtn" type="button" aria-expanded="false" aria-controls="fpanel"></button>
+    <button id="gbtn" type="button" aria-expanded="false" aria-controls="gpanel"></button>
+    <button id="hbtn" type="button" aria-expanded="false" aria-controls="hpanel"></button>
+    <div id="fpanel" role="dialog"></div>
+    <div id="hpanel" role="dialog"></div>
+    <div id="gpanel" role="dialog">
+      <input id="gq" type="search" autocomplete="off" spellcheck="false">
+      <div id="gsug"></div>
+      <div id="gcard"></div>
+    </div>
+  </div>
+</div>
+
+<script src="/cancer-dataset-project/api.js"></script>
+<script src="/cancer-dataset-project/app.js"></script>
+</body>
+</html>
